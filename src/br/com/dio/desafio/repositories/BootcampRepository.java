@@ -1,36 +1,47 @@
 package br.com.dio.desafio.repositories;
 
 import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Dev;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class BootcampRepository {
 
-    private static final Set<Bootcamp> bootcamps = new HashSet<>();
+    private static final Map<Integer,Bootcamp> bootcamps = new HashMap<>();
+    private static int id;
 
     public static void save(Bootcamp bootcamp){
-        bootcamps.add(bootcamp);
+        if(bootcamp.getId() == 0){
+            bootcamp.setId(++id);
+        }
+        bootcamps.put(bootcamp.getId(), bootcamp);
     }
 
-    public static Set<Bootcamp> findAll(){
-        return bootcamps;
+    public static Collection<Bootcamp> findAll(){
+        return new ArrayList<>(bootcamps.values());
     }
 
-    public static Optional<Bootcamp> findByName(String name){
+    public static Optional<Bootcamp> findById(int id){
 
-        return bootcamps.stream()
-                .filter(b -> b.getNome().equals(name))
-                .findFirst();
+        return Optional.ofNullable(bootcamps.get(id));
     }
 
-    public static boolean delete(Bootcamp bootcamp){
-        if (bootcamps.contains(bootcamp)){
-            bootcamps.remove(bootcamp);
-            return true;
+    public static boolean deleteById(int id){
+        return bootcamps.remove(id) != null;
+    }
+
+    public static void update(Bootcamp bootcamp) throws Exception {
+
+        if(bootcamp.getId() > 0){
+
+            if( bootcamps.containsKey(bootcamp.getId())){
+                bootcamps.replace(bootcamp.getId(), bootcamp);
+            }else{
+                throw new Exception("Bootcamp não encontrado com ID informado");
+            }
+
         }else{
-            return false;
+            throw new Exception("ID do Bootcamp inválido");
         }
     }
 
