@@ -1,13 +1,10 @@
 package br.com.dio.desafio.services;
 
 import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Conteudo;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.repositories.BootcampRepository;
-import br.com.dio.desafio.repositories.DevRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class BootcampService {

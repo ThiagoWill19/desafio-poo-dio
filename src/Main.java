@@ -6,8 +6,6 @@ import br.com.dio.desafio.repositories.BootcampRepository;
 import br.com.dio.desafio.repositories.DevRepository;
 import br.com.dio.desafio.services.DevService;
 
-import java.util.ArrayList;
-
 
 public class Main {
 
