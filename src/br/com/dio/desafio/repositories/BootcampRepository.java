@@ -10,11 +10,12 @@ public class BootcampRepository {
     private static final Map<Integer,Bootcamp> bootcamps = new HashMap<>();
     private static int id;
 
-    public static void save(Bootcamp bootcamp){
+    public static Bootcamp save(Bootcamp bootcamp){
         if(bootcamp.getId() == 0){
             bootcamp.setId(++id);
         }
         bootcamps.put(bootcamp.getId(), bootcamp);
+        return bootcamp;
     }
 
     public static Collection<Bootcamp> findAll(){
@@ -23,6 +24,10 @@ public class BootcampRepository {
 
     public static Optional<Bootcamp> findById(int id){
 
+        return Optional.ofNullable(bootcamps.get(id));
+    }
+
+    public static Optional<Bootcamp> findByID(int id){
         return Optional.ofNullable(bootcamps.get(id));
     }
 
