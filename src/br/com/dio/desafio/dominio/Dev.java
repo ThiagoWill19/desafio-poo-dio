@@ -46,7 +46,7 @@ public class Dev {
         this.nome = nome;
     }
 
-    public Set<Conteudo> getConteudosInscritos() {
+    public Set<Conteudo> getConteudosInscritos(Set<Conteudo> conteudos) {
         return conteudosInscritos;
     }
 
@@ -73,5 +73,10 @@ public class Dev {
     @Override
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
+    }
+
+    @Override
+    public String toString() {
+        return this.nome + " - " + this.calcularTotalXp();
     }
 }
