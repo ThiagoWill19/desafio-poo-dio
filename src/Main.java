@@ -1,9 +1,7 @@
 
 import br.com.dio.desafio.dominio.*;
 import br.com.dio.desafio.repositories.BootcampRepository;
-import br.com.dio.desafio.services.BootcampService;
-import br.com.dio.desafio.services.DevService;
-import br.com.dio.desafio.views.DevView;
+import br.com.dio.desafio.views.MainPage;
 
 import java.time.LocalDate;
 
@@ -12,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Persistindo um primeiro bootcamp na memória
         Curso conteudo = new Curso();
         conteudo.setTitulo("Curso Java Dio");
         conteudo.setDescricao("Java iniciante");
@@ -31,10 +30,8 @@ public class Main {
 
         BootcampRepository.save(bootcamp);
 
-       DevView devView = new DevView();
-       devView.inicialView();
-
-
+        MainPage mainPage = new MainPage();
+        mainPage.mainPage();
 
     }
 
