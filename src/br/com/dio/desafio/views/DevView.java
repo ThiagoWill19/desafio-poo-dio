@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class DevView {
 
     private Scanner scan = new Scanner(System.in);
-
     private DevService devService = new DevService();
     private BootcampService bootcampService = new BootcampService();
 
@@ -26,7 +25,7 @@ public class DevView {
         System.out.println("[1] Listar Devs cadastrados");
         System.out.println("[2] Buscar por ID");
         System.out.println("[3] Cadastrar novo");
-        System.out.println("[S] Sair");
+        System.out.println("[S] Voltar");
 
         String opc = scan.nextLine().toUpperCase();
 
@@ -42,7 +41,7 @@ public class DevView {
                 create();
                 break;
             case "S" :
-                break;
+                return;
 
             default :
                 System.err.println("Selecione uma das opções válidas!");
@@ -146,7 +145,7 @@ public class DevView {
         System.out.println("[1] Cadastrar em um Bootcamp");
         System.out.println("[2] Avançar conteúdo"); // simula o avanço dos cursos
         System.out.println("[3] Deletar Dev");
-        System.out.println("[S] Sair");
+        System.out.println("[S] Voltar");
 
         String opc = scan.nextLine().toUpperCase();
 
