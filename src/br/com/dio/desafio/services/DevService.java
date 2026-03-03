@@ -56,7 +56,7 @@ public class DevService {
 
                 if(!bootcamp.getDevsInscritos().contains(dev)){
 
-                    dev.setConteudosInscritos(bootcamp.getConteudos());
+                    dev.getConteudosInscritos().addAll(bootcamp.getConteudos());
                     bootcamp.getDevsInscritos().add(dev);
 
 
